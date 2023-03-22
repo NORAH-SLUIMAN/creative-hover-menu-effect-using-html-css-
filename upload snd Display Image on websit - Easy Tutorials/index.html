@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload snd Display Image on websit - Easy Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container" id="imgBox">
+
+        <div id="prevText"></div>
+
+       <textarea  id="textbox" placeholder="إضافةالنص هنا:"></textarea> 
+<!--الكود لتفعيل زر الصورة وتحميلها -->
+       <input type="file" accept="Image/*" name="Image" id="file" style="display: none" onchange="loadFile(event)">
+       <label for="file"><img src="upload.png" class="upload-icon"></label>
+    </div>
+   <script>
+//  وتحميل الصورةimgBox الكود لتفعيل النص textbox على الصورة
+ var textbox =  document.getElementById("textbox");
+var imgBox = document.getElementById("imgBox");
+
+textbox.onkeyup = textbox.onkeypress =function() {
+   document.getElementById("prevText").innerHTML = this.value;
+} 
+
+var loadFile =function(event){
+    imgBox.style.backgroundImage = "url(" +URL.createObjectURL(event.target.files[0]) + ")";
+}
+
+   </script>
+ 
+</body>
+</html>
